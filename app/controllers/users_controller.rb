@@ -1,51 +1,49 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
+  before_action :authorize, only: [:show]
 
-  # GET /users
-  def index
-    @users = User.all
-
-    render json: @users
-  end
-
-  # GET /users/1
-  def show
-    render json: @user
-  end
-
-  # POST /users
+  #POST /signup
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
+    user = User.create(user_params)
+    if user.valid?
+        # Save user id in the session's hash
+        session[:user_id] = user.id
+        render json: user, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
+end
+
+ # GET logged user /me
+
+def show
+    user = User.find(session[:user_id])
+    render json: user, status: :created
+end
+
+
+ # PATCH/PUT /users/1
+ def update
+    user = User.find(session[:user_id])
+    user.update!(user_params)
+    render json: user, status: :created
   end
 
-  # PATCH/PUT /users/1
-  def update
-    if @user.update(user_params)
-      render json: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+
+# reset user password when not logged in
+def reset_password
+    user = User.find_by(email: params[:email])
+    user.update!(password: params[:password])
+    session[:user_id] = user.id
+    render json: user, status: :created
   end
 
-  # DELETE /users/1
-  def destroy
-    @user.destroy
-  end
+private
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+def user_params
+    params.permit(:username, :email, :password, :password_confirmation)
+end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username, :email, :password_digest)
-    end
+def authorize
+    return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+end
 end
