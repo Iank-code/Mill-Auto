@@ -33,12 +33,13 @@ class CarsController < ApplicationController
 
     def delete
         car = find_car
-        if car
-            car.destroy
-            head: no_content
-        else
-            render json: { error: "Car not found" }, status: :not_found
-        end
+        car.destroy
+        # if car
+        #     car.destroy
+        #     # head: no_content
+        # else
+        #     render json: { error: "Car not found" }, status: :not_found
+        # end
     end
     private
     def car_params
