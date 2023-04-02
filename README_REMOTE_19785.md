@@ -23,11 +23,6 @@ Things you may want to cover:
 
 * ...
 # Mill-Auto
-<<<<<<< HEAD
-## Authors
-- MILL Auto
-=======
 
 # Authors
-Mill Auto
->>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
+Leewell Muchiri

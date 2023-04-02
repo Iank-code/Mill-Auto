@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_03_31_091741) do
   create_table "cars", force: :cascade do |t|
     t.string "model"
     t.integer "year_of_manufacture"
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_094048) do
+  create_table "cars", force: :cascade do |t|
+    t.string "model"
+    t.string "year_of_manufacture"
+>>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
     t.string "transmission"
     t.string "fuel_type"
     t.integer "price"
@@ -26,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_091741) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+<<<<<<< HEAD
   create_table "orders", force: :cascade do |t|
     t.integer "quality"
     t.float "total_price"
@@ -38,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_091741) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+=======
+>>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
     t.integer "user_id", null: false
@@ -57,8 +67,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_091741) do
   end
 
   add_foreign_key "cars", "users"
+<<<<<<< HEAD
   add_foreign_key "orders", "cars"
   add_foreign_key "orders", "users"
+=======
+>>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
   add_foreign_key "reviews", "cars"
   add_foreign_key "reviews", "users"
 end

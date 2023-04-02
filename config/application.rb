@@ -24,6 +24,7 @@ module MillAuto
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+<<<<<<< HEAD
     #Adding back cookies and session middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
@@ -32,5 +33,12 @@ module MillAuto
     # https://owasp.org/www-community/SameSite
     config.action_dispatch.cookies_same_site_protection = :strict
     
+=======
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+
+    config.action_dispatch.cookies_same_site_protection = :strict
+
+>>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
   end
 end
