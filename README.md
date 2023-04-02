@@ -25,4 +25,4 @@ Things you may want to cover:
 # Mill-Auto
 
 # Authors
-Leewell Muchiri
+MILL Auto
