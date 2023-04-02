@@ -25,4 +25,4 @@ Things you may want to cover:
 # Mill-Auto
 
 # Authors
-MILL Auto
+Mill Auto
