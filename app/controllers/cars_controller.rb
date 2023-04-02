@@ -1,5 +1,7 @@
 class CarsController < ApplicationController
-    # before_action :authorize, except: [:index, :show]
+    before_action :authorize, except: [:index, :show]
+    # skip_before_action :verify_authenticity_token
+    # before_action :verify_authenticity_token
     def index
         cars = Car.all
         render json: cars, status: :ok
@@ -46,6 +48,6 @@ class CarsController < ApplicationController
         params.permit(:model, :year_of_manufacture, :transmission, :fuel_type, :price, :user_id,  :front_right_url, :back_left_url, :interior_url)
     end
     def find_car
-        car = Car.find_by(id: params[:id])
+        car = Car.find(params[:id])
     end
 end
