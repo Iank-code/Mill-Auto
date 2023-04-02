@@ -1,11 +1,5 @@
 class CarsController < ApplicationController
-<<<<<<< HEAD
     # before_action :authorize, except: [:index, :show]
-=======
-
-    # before_action :authorize, except: [:index, :show]
-
->>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
     def index
         cars = Car.all
         render json: cars, status: :ok
