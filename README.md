@@ -22,12 +22,18 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# Mill-Auto
+# Mill Auto
 <<<<<<< HEAD
 ## Authors
 - MILL Auto
 =======
 
 # Authors
+<<<<<<< HEAD
 Mill Auto
 >>>>>>> 3454c62fefdb54921e806ac555a1ea8aa068071c
+||||||| f828ea9
+Leewell Muchiri
+=======
+Mill Auto
+>>>>>>> leewell-dev
