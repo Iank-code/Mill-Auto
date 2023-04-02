@@ -25,7 +25,7 @@ Things you may want to cover:
 # Mill Auto
 <<<<<<< HEAD
 ## Authors
-- MILL Auto
+- Mill Auto
 =======
 
 # Authors
