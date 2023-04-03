@@ -1,18 +1,14 @@
 class ApplicationController < ActionController::API
 include ActionController::Cookies
-# protect_from_forgery with: :exception
  before_action :log_referrer_policy
 
-  # private
-
-  
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   before_action :authorize
   
   private
   def log_referrer_policy
     Rails.logger.info("Referrer-Policy before: #{response.headers['Referrer-Policy']}")
-    response.headers['Referrer-Policy'] = ''
+    response.headers['Referrer-Policy'] = '*'
     Rails.logger.info("Referrer-Policy after: #{response.headers['Referrer-Policy']}")
   end
 
