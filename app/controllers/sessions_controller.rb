@@ -1,11 +1,15 @@
 class SessionsController < ApplicationController
-    # before_action :authorize, only: [:destroy]
+    # before_action :authorize, only: [:create, :destroy]
+    before_action :create
+    skip_before_action :authorize
     #Login
     skip_before_action :authorize, only: :create
 
     def new
     end
 
+#     "email": "joseph@gmail.com",
+#   "password_confirmation": "joseph123"
     def create
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
@@ -14,6 +18,7 @@ class SessionsController < ApplicationController
         else
             render json: { error: "Invalid username or password" }, status: :unauthorized
         end
+       
     end
 
     #Delete

@@ -5,6 +5,7 @@ ruby "2.7.4"
 
 gem 'rack-cors'
 gem "faker"
+gem 'rack-cors', '~> 0.3.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 gem 'active_model_serializers'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
