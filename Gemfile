@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.4"
 
-gem 'rack-cors'
 gem "faker"
 gem 'rack-cors', '~> 0.3.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.18'
